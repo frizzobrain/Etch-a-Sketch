@@ -1,0 +1,12 @@
+.container{
+    border: solid 3px black;
+    height: 960px;
+    width: 960px;
+    margin: auto;
+    background-color: white;
+}
+
+body{
+    text-align: center;
+    background-color: bisque;
+}
