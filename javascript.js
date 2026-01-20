@@ -16,8 +16,11 @@ createGrid.addEventListener("click", function(e){
     
 });
 
+let opacity;
+
 const container = document.querySelector(".container");
 function createDiv(val){
+     opacity = 0;
     //reset grid first, removing all the previously created node
     container.querySelectorAll('*').forEach(n => n.remove());
     //create the new nodes
@@ -27,17 +30,27 @@ function createDiv(val){
     div.style.height= lato+"px";
     div.style.width = lato+"px";
     div.style.backgroundColor = "yellow";
+    
     // div.style.border = "1px solid black";
-    div.addEventListener("mouseenter",e =>e.target.style.backgroundColor = getColor());
+    div.addEventListener("mouseenter",function(e){
+        
+        // background: rgb(0 0 0 / 40%);
+        e.target.style.backgroundColor = 'rgba(' 
+        + getRandomNumber() + ',' + getRandomNumber() + ',' + getRandomNumber() + ',' + getOpacity(opacity)+')';
+    
+    })
     container.appendChild(div);
 }
 }
 
-function getColor() {
-  var letters = '0123456789ABCDEF';
-  var color = '#';
-  for (var i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
-  }
-  return color;
+function getRandomNumber() {
+  var RandomNumber = Math.floor(Math.random() * 255);
+  
+  return RandomNumber;
+}
+
+function getOpacity() {
+  opacity = opacity+ 0.1;
+  console.log(opacity);
+  return opacity;
 }
